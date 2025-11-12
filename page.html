@@ -203,7 +203,7 @@
             display: inline-flex;
             gap: 8px;
             align-items: center;
-            margin-left: 20px;
+            margin-right: 20px;
         }
 
         .language-switcher button {
@@ -575,8 +575,8 @@
                             <button id="lang-ru-${nav.id || Math.random()}" class="lang-ru-btn ${savedLang === 'ru' ? 'active' : ''}" title="Русский">🇷🇺</button>
                         `;
                         
-                        // Append to navigation
-                        nav.appendChild(switcher);
+                        // Prepend to navigation (insert at the beginning)
+                        nav.insertBefore(switcher, nav.firstChild);
                     });
                     
                     setupEventListeners();
@@ -630,16 +630,41 @@
         const translations = {
             // Navigation
             "Blog": "Блог",
+            "Instagram": "Инстаграм",
             
-            // Hero section - exact matches
+            // Hero section
             "Start your day": "Начните свой день",
             "with focus and": "с фокусом и",
             "energy": "энергией",
             "Consistency is hard alone. Morning Buddies pairs you with real people not an app notification — Morning check-ins. Human touch. Better days.": "Постоянство трудно в одиночку. Morning Buddies объединяет вас с реальными людьми, а не с уведомлениями приложения — утренние встречи. Человеческое тепло. Лучшие дни.",
             
-            // Form
-            "Join Waitlist": "Присоединиться",
-            "name@email.com": "имя@email.com"
+            // Buttons
+            "Get Started": "Начать",
+            "name@email.com": "имя@email.com",
+            
+            // Community section
+            "Join Our Growing Community": "Присоединяйтесь к нашему растущему сообществу",
+            "Calls Made": "Звонков сделано",
+            "Goals Completed": "Целей выполнено",
+            
+            // Problem section
+            "The Morning Struggle": "Утренняя борьба",
+            "It's hard to wake up and stay focused alone": "Трудно просыпаться и оставаться сосредоточенным в одиночку",
+            "Tasks keep piling up, there's no clear structure, and your morning mood sapes the whole day": "Задачи накапливаются, нет четкой структуры, и ваше утреннее настроение портит весь день",
+            "The fear that you'll lose momentum": "Страх потерять импульс",
+            "Feeling of isolated in your goal": "Чувство изоляции в достижении цели",
+            
+            // How It Works section
+            "How Morning Buddies Works": "Как работает Morning Buddies",
+            "Morning Buddies is a daily 10 minute call with your buddy to define tasks and set a positive mindset for the day": "Morning Buddies — это ежедневный 10-минутный звонок с вашим напарником для определения задач и настроя на позитивный лад",
+            "Step 01 :": "Шаг 01:",
+            "Join the community": "Присоединяйтесь к сообществу",
+            "Step 02 :": "Шаг 02:",
+            "Find your buddy": "Найдите своего напарника",
+            "Step 03 :": "Шаг 03:",
+            "Join the morning call": "Присоединяйтесь к утреннему звонку",
+            "Result :": "Результат:",
+            "Start Your day focused and energized.": "Начните свой день сосредоточенным и энергичным."
         };
 
         // Store all translated elements to restore later
