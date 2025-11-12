@@ -225,6 +225,13 @@
         .language-switcher button.active {
             opacity: 1;
         }
+        /* Mobile language switcher positioning */
+        @media (max-width: 809.98px) {
+            .language-switcher-mobile {
+                margin-left: auto;
+                margin-right: 15px;
+            }
+        }
 
         [data-lang]:not([data-lang="en"]) { display: none; }
         html[lang="ru"] [data-lang="en"] { display: none; }
@@ -559,28 +566,48 @@
             
             // Create and inject language switcher into navigation
             function injectLanguageSwitcher() {
-                // Find the navigation container - try multiple selectors
+                // Find the navigation container - desktop and tablet
                 const navContainers = document.querySelectorAll('[data-framer-name="Navigation"], .framer-1nhqjuk');
                 
-                if (navContainers.length > 0) {
-                    navContainers.forEach(nav => {
-                        // Check if switcher already exists
-                        if (nav.querySelector('.language-switcher')) return;
-                        
-                        // Create language switcher
-                        const switcher = document.createElement('div');
-                        switcher.className = 'language-switcher';
-                        switcher.innerHTML = `
-                            <button id="lang-en-${nav.id || Math.random()}" class="lang-en-btn ${savedLang === 'en' ? 'active' : ''}" title="English">🇺🇸</button>
-                            <button id="lang-ru-${nav.id || Math.random()}" class="lang-ru-btn ${savedLang === 'ru' ? 'active' : ''}" title="Русский">🇷🇺</button>
+                navContainers.forEach(nav => {
+                    // Check if switcher already exists
+                    if (nav.querySelector('.language-switcher')) return;
+                    
+                    // Create language switcher
+                    const switcher = document.createElement('div');
+                    switcher.className = 'language-switcher';
+                    switcher.innerHTML = `
+                        <button class="lang-en-btn ${savedLang === 'en' ? 'active' : ''}" title="English">🇺🇸</button>
+                        <button class="lang-ru-btn ${savedLang === 'ru' ? 'active' : ''}" title="Русский">🇷🇺</button>
+                    `;
+                    
+                    // Prepend to navigation (insert at the beginning)
+                    nav.insertBefore(switcher, nav.firstChild);
+                });
+                
+                // Handle mobile navigation - find the nav element that contains burger menu
+                const mobileNavs = document.querySelectorAll('nav[aria-label="Main navigation"]');
+                mobileNavs.forEach(nav => {
+                    // Check if switcher already exists
+                    if (nav.querySelector('.language-switcher')) return;
+                    
+                    // Find the burger menu container
+                    const burgerContainer = nav.querySelector('.framer-1ieogva-container');
+                    if (burgerContainer) {
+                        // Create mobile language switcher
+                        const mobileSwitcher = document.createElement('div');
+                        mobileSwitcher.className = 'language-switcher language-switcher-mobile';
+                        mobileSwitcher.innerHTML = `
+                            <button class="lang-en-btn ${savedLang === 'en' ? 'active' : ''}" title="English">🇺🇸</button>
+                            <button class="lang-ru-btn ${savedLang === 'ru' ? 'active' : ''}" title="Русский">🇷🇺</button>
                         `;
                         
-                        // Prepend to navigation (insert at the beginning)
-                        nav.insertBefore(switcher, nav.firstChild);
-                    });
-                    
-                    setupEventListeners();
-                }
+                        // Insert before burger menu
+                        burgerContainer.parentElement.insertBefore(mobileSwitcher, burgerContainer);
+                    }
+                });
+                
+                setupEventListeners();
             }
             
             // Update active button
