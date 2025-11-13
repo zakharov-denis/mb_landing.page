@@ -699,36 +699,93 @@
 
         // Function to translate text nodes
         function translatePage(lang) {
+            console.log('=== translatePage called with:', lang, '===');
+
             if (lang === 'ru') {
-                // Clear previous translations
-                translatedElements.clear();
+                console.log('Starting Russian translation...');
+                // DON'T clear - keep original texts stored!
                 
                 // Translate h1 elements
+                let h1Count = 0;
                 document.querySelectorAll('h1').forEach(el => {
-                    const text = el.textContent.trim();
-                    if (translations[text]) {
-                        translatedElements.set(el, text);
-                        el.textContent = translations[text];
+                    // Get current text or stored original
+                    const currentText = el.textContent.trim();
+                    const originalText = translatedElements.get(el) || currentText;
+
+                    if (translations[originalText]) {
+                        // Store original if not already stored
+                        if (!translatedElements.has(el)) {
+                            translatedElements.set(el, originalText);
+                        }
+                        el.textContent = translations[originalText];
+                        h1Count++;
                     }
                 });
-                
+                console.log(`Translated ${h1Count} h1 elements`);
+
+                // Translate h2 elements
+                let h2Count = 0;
+                document.querySelectorAll('h2').forEach(el => {
+                    const currentText = el.textContent.trim();
+                    const originalText = translatedElements.get(el) || currentText;
+
+                    if (translations[originalText]) {
+                        if (!translatedElements.has(el)) {
+                            translatedElements.set(el, originalText);
+                        }
+                        el.textContent = translations[originalText];
+                        h2Count++;
+                    }
+                });
+                console.log(`Translated ${h2Count} h2 elements`);
+
+                // Translate h3 elements (FAQ questions)
+                let h3Count = 0;
+                document.querySelectorAll('h3').forEach(el => {
+                    const currentText = el.textContent.trim();
+                    const originalText = translatedElements.get(el) || currentText;
+
+                    if (translations[originalText]) {
+                        if (!translatedElements.has(el)) {
+                            translatedElements.set(el, originalText);
+                        }
+                        el.textContent = translations[originalText];
+                        h3Count++;
+                    }
+                });
+                console.log(`Translated ${h3Count} h3 elements`);
+
                 // Translate p elements
+                let pCount = 0;
                 document.querySelectorAll('p').forEach(el => {
-                    const text = el.textContent.trim();
-                    if (translations[text]) {
-                        translatedElements.set(el, text);
-                        el.textContent = translations[text];
+                    const currentText = el.textContent.trim();
+                    const originalText = translatedElements.get(el) || currentText;
+
+                    if (translations[originalText]) {
+                        if (!translatedElements.has(el)) {
+                            translatedElements.set(el, originalText);
+                        }
+                        el.textContent = translations[originalText];
+                        pCount++;
                     }
                 });
-                
+                console.log(`Translated ${pCount} p elements`);
+
                 // Translate buttons
+                let btnCount = 0;
                 document.querySelectorAll('button').forEach(el => {
-                    const text = el.textContent.trim();
-                    if (translations[text]) {
-                        translatedElements.set(el, text);
-                        el.textContent = translations[text];
+                    const currentText = el.textContent.trim();
+                    const originalText = translatedElements.get(el) || currentText;
+
+                    if (translations[originalText]) {
+                        if (!translatedElements.has(el)) {
+                            translatedElements.set(el, originalText);
+                        }
+                        el.textContent = translations[originalText];
+                        btnCount++;
                     }
                 });
+                console.log(`Translated ${btnCount} button elements`);
                 
                 // Translate input placeholders
                 document.querySelectorAll('input[placeholder]').forEach(el => {
@@ -740,18 +797,24 @@
                         el.setAttribute('placeholder', translations[placeholder]);
                     }
                 });
+
+                console.log(`Total elements tracked: ${translatedElements.size}`);
             } else {
-                // Restore English from stored originals
+                console.log('Restoring English...');
+                // Restore English from stored originals (but DON'T clear the map!)
+                const restoreCount = translatedElements.size;
                 translatedElements.forEach((originalText, element) => {
                     element.textContent = originalText;
                 });
-                translatedElements.clear();
-                
+                console.log(`Restored ${restoreCount} elements to English`);
+                // DON'T CLEAR - keep originals for next switch!
+
                 // Restore input placeholders
                 document.querySelectorAll('[data-original-placeholder]').forEach(el => {
                     el.setAttribute('placeholder', el.getAttribute('data-original-placeholder'));
                 });
             }
+            console.log('=== translatePage finished ===');
         }
 
         // Watch for language changes
