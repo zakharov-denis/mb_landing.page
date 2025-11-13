@@ -244,6 +244,11 @@
         [data-lang]:not([data-lang="en"]) { display: none; }
         html[lang="ru"] [data-lang="en"] { display: none; }
         html[lang="ru"] [data-lang="ru"] { display: block; }
+        
+        /* Text color to black */
+        body, p, h1, h2, h3, h4, h5, h6, span, div, a, button, input, textarea, select, label {
+            color: #000000 !important;
+        }
     </style>
 </head>
 <body>
@@ -574,8 +579,8 @@
     <!-- ============================================ -->
     <script>
         (function() {
-            // Get saved language or default to English
-            const savedLang = localStorage.getItem('language') || 'en';
+            // Get saved language or default to Russian
+            const savedLang = localStorage.getItem('language') || 'ru';
             document.documentElement.lang = savedLang;
             
             // Create and inject language switcher into navigation
@@ -849,7 +854,7 @@
         // Initial translation based on saved language
         // Wait for page to fully load
         function initTranslation() {
-            const lang = document.documentElement.lang || 'en';
+            const lang = document.documentElement.lang || 'ru';
             if (lang === 'ru') {
                 translatePage('ru');
             }

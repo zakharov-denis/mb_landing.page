@@ -4,7 +4,15 @@
     "ignore": [
       "firebase.json",
       "**/.*",
-      "**/node_modules/**"
+      "**/node_modules/**",
+      "app/**",
+      "next.config.js",
+      "tsconfig.json",
+      "package.json",
+      "package-lock.json",
+      "*.py",
+      "*.md",
+      "public/**"
     ],
     "rewrites": [
       {
