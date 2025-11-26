@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": ".",
+    "public": "public",
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -11,13 +11,12 @@
       "package.json",
       "package-lock.json",
       "*.py",
-      "*.md",
-      "public/**"
+      "*.md"
     ],
     "rewrites": [
       {
         "source": "/",
-        "destination": "/page.html"
+        "destination": "/index.html"
       }
     ]
   }

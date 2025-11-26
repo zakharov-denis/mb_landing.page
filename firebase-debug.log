@@ -1,0 +1,117 @@
+[debug] [2025-11-17T12:05:23.006Z] ----------------------------------------------------------------------
+[debug] [2025-11-17T12:05:23.009Z] Command:       /opt/homebrew/Cellar/node/24.9.0/bin/node /opt/homebrew/bin/firebase deploy --only hosting
+[debug] [2025-11-17T12:05:23.009Z] CLI Version:   14.24.0
+[debug] [2025-11-17T12:05:23.009Z] Platform:      darwin
+[debug] [2025-11-17T12:05:23.009Z] Node Version:  v24.9.0
+[debug] [2025-11-17T12:05:23.009Z] Time:          Mon Nov 17 2025 15:05:23 GMT+0300 (Moscow Standard Time)
+[debug] [2025-11-17T12:05:23.009Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-11-17T12:05:23.118Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-11-17T12:05:23.119Z] > authorizing via signed-in user (dz.workhub@gmail.com)
+[debug] [2025-11-17T12:05:23.119Z] [iam] checking project banya-na-griga for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2025-11-17T12:05:23.119Z] Checked if tokens are valid: true, expires at: 1763383777668
+[debug] [2025-11-17T12:05:23.119Z] Checked if tokens are valid: true, expires at: 1763383777668
+[debug] [2025-11-17T12:05:23.120Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/banya-na-griga:testIamPermissions [none]
+[debug] [2025-11-17T12:05:23.120Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/banya-na-griga:testIamPermissions x-goog-quota-user=projects/banya-na-griga
+[debug] [2025-11-17T12:05:23.120Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/banya-na-griga:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-11-17T12:05:23.845Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/banya-na-griga:testIamPermissions 200
+[debug] [2025-11-17T12:05:23.845Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/banya-na-griga:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-11-17T12:05:23.845Z] Checked if tokens are valid: true, expires at: 1763383777668
+[debug] [2025-11-17T12:05:23.846Z] Checked if tokens are valid: true, expires at: 1763383777668
+[debug] [2025-11-17T12:05:23.846Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/banya-na-griga [none]
+[debug] [2025-11-17T12:05:24.613Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/banya-na-griga 200
+[debug] [2025-11-17T12:05:24.613Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/banya-na-griga {"projectId":"banya-na-griga","projectNumber":"415000304963","displayName":"MB Landing Page","name":"projects/banya-na-griga","resources":{"hostingSite":"banya-na-griga"},"state":"ACTIVE","etag":"1_b1319950-b59e-411b-8c2b-102918e9626a"}
+[info] 
+[info] === Deploying to 'banya-na-griga'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2025-11-17T12:05:24.619Z] Checked if tokens are valid: true, expires at: 1763383777668
+[debug] [2025-11-17T12:05:24.619Z] Checked if tokens are valid: true, expires at: 1763383777668
+[debug] [2025-11-17T12:05:24.620Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/banya-na-griga/versions [none]
+[debug] [2025-11-17T12:05:24.620Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/banya-na-griga/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2025-11-17T12:05:25.660Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/banya-na-griga/versions 200
+[debug] [2025-11-17T12:05:25.660Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/banya-na-griga/versions {"name":"projects/415000304963/sites/banya-na-griga/versions/689f4359f28e1edc","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[banya-na-griga]: beginning deploy... 
+[info] i  hosting[banya-na-griga]: found 13 files in public 
+[debug] [2025-11-17T12:05:41.141Z] [hosting] uploading with 200 concurrency
+[debug] [2025-11-17T12:05:41.157Z] Checked if tokens are valid: true, expires at: 1763383777668
+[debug] [2025-11-17T12:05:41.157Z] Checked if tokens are valid: true, expires at: 1763383777668
+[debug] [2025-11-17T12:05:41.158Z] [hosting] hash cache [cHVibGlj] stored for 13 files
+[debug] [2025-11-17T12:05:41.158Z] [hosting][hash queue][FINAL] {"max":15,"min":0,"avg":1.3076923076923077,"active":0,"complete":13,"success":13,"errored":0,"retried":0,"total":13,"elapsed":16}
+[debug] [2025-11-17T12:05:41.158Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/415000304963/sites/banya-na-griga/versions/689f4359f28e1edc:populateFiles [none]
+[debug] [2025-11-17T12:05:41.158Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/415000304963/sites/banya-na-griga/versions/689f4359f28e1edc:populateFiles {"files":{"/favicon.png":"d115d07281f19a02926e969e7dea4689653d479c9f943d853e231334d7aa7eb1","/favicon.ico":"ee76360a116576cd7507cd79fa36d9dad3a43b083319952f3381e72c0fefac17","/apple-touch-icon.png":"0af4fd9436785b77cac1e707b3c06339e31aee1879d42b7607b0d6c5d1c10d8a","/MB_icon.zip":"7f48d51b6539f65f8838ca6e060afcb79f66a32abe53ef6556401561f0831004","/MB_icon/site.webmanifest":"438eab4e1bab8df855faa047301dcd8cce4c8a815a1527502b0efc2270ad77fd","/MB_icon/favicon.ico":"ee76360a116576cd7507cd79fa36d9dad3a43b083319952f3381e72c0fefac17","/MB_icon/favicon-32x32.png":"d115d07281f19a02926e969e7dea4689653d479c9f943d853e231334d7aa7eb1","/MB_icon/favicon-16x16.png":"69c2cd5a01c098eff40f1333d8607260a2d01a7e687142a86bdb90d6241196e0","/MB_icon/apple-touch-icon.png":"0af4fd9436785b77cac1e707b3c06339e31aee1879d42b7607b0d6c5d1c10d8a","/MB_icon/android-chrome-512x512.png":"9fc14dda66f7be20c86d6975fdcac038421e6dd448d16123491959ad419ba690","/MB_icon/android-chrome-192x192.png":"0553a4c941fd694cc9943a589ed5d93870c1382ec67523c1124ffe17ed671b9d","/config.json":"015aabd62dcf9fe6fa51bf67f9225990e68c3bf39fdba0086f6ec23720ac507c","/index.html":"82835f17a3c6b344fadc8114112b50329aca9f31861f404e6b912237fc7e8b7f"}}
+[debug] [2025-11-17T12:05:41.934Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/415000304963/sites/banya-na-griga/versions/689f4359f28e1edc:populateFiles 200
+[debug] [2025-11-17T12:05:41.934Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/415000304963/sites/banya-na-griga/versions/689f4359f28e1edc:populateFiles {"uploadRequiredHashes":["015aabd62dcf9fe6fa51bf67f9225990e68c3bf39fdba0086f6ec23720ac507c","82835f17a3c6b344fadc8114112b50329aca9f31861f404e6b912237fc7e8b7f"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/banya-na-griga/versions/689f4359f28e1edc/files"}
+[debug] [2025-11-17T12:05:41.935Z] Checked if tokens are valid: true, expires at: 1763383777668
+[debug] [2025-11-17T12:05:41.935Z] Checked if tokens are valid: true, expires at: 1763383777668
+[debug] [2025-11-17T12:05:41.935Z] Checked if tokens are valid: true, expires at: 1763383777668
+[debug] [2025-11-17T12:05:41.935Z] Checked if tokens are valid: true, expires at: 1763383777668
+[debug] [2025-11-17T12:05:41.935Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/banya-na-griga/versions/689f4359f28e1edc/files/015aabd62dcf9fe6fa51bf67f9225990e68c3bf39fdba0086f6ec23720ac507c [none]
+[debug] [2025-11-17T12:05:41.935Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/banya-na-griga/versions/689f4359f28e1edc/files/015aabd62dcf9fe6fa51bf67f9225990e68c3bf39fdba0086f6ec23720ac507c [stream]
+[debug] [2025-11-17T12:05:41.936Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/banya-na-griga/versions/689f4359f28e1edc/files/82835f17a3c6b344fadc8114112b50329aca9f31861f404e6b912237fc7e8b7f [none]
+[debug] [2025-11-17T12:05:41.936Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/banya-na-griga/versions/689f4359f28e1edc/files/82835f17a3c6b344fadc8114112b50329aca9f31861f404e6b912237fc7e8b7f [stream]
+[debug] [2025-11-17T12:05:41.937Z] [hosting][populate queue][FINAL] {"max":778,"min":778,"avg":778,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":780}
+[debug] [2025-11-17T12:05:41.937Z] [hosting] uploads queued: 2
+[debug] [2025-11-17T12:05:43.568Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/banya-na-griga/versions/689f4359f28e1edc/files/82835f17a3c6b344fadc8114112b50329aca9f31861f404e6b912237fc7e8b7f 200
+[debug] [2025-11-17T12:05:43.568Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/banya-na-griga/versions/689f4359f28e1edc/files/82835f17a3c6b344fadc8114112b50329aca9f31861f404e6b912237fc7e8b7f [stream]
+[debug] [2025-11-17T12:05:43.688Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/banya-na-griga/versions/689f4359f28e1edc/files/015aabd62dcf9fe6fa51bf67f9225990e68c3bf39fdba0086f6ec23720ac507c 200
+[debug] [2025-11-17T12:05:43.689Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/banya-na-griga/versions/689f4359f28e1edc/files/015aabd62dcf9fe6fa51bf67f9225990e68c3bf39fdba0086f6ec23720ac507c [stream]
+[debug] [2025-11-17T12:05:43.689Z] [hosting][upload queue][FINAL] {"max":1755,"min":1634,"avg":1694.5,"active":0,"complete":2,"success":2,"errored":0,"retried":0,"total":2,"elapsed":1755}
+[info] ✔  hosting[banya-na-griga]: file upload complete 
+[debug] [2025-11-17T12:05:43.689Z] [hosting] deploy completed after 2560ms
+[debug] [2025-11-17T12:05:43.690Z] [
+  {
+    "config": {
+      "public": "public",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**",
+        "app/**",
+        "next.config.js",
+        "tsconfig.json",
+        "package.json",
+        "package-lock.json",
+        "*.py",
+        "*.md"
+      ],
+      "rewrites": [
+        {
+          "source": "/",
+          "destination": "/index.html"
+        }
+      ],
+      "site": "banya-na-griga"
+    },
+    "version": "projects/415000304963/sites/banya-na-griga/versions/689f4359f28e1edc"
+  }
+]
+[info] i  hosting[banya-na-griga]: finalizing version... 
+[debug] [2025-11-17T12:05:43.691Z] Checked if tokens are valid: true, expires at: 1763383777668
+[debug] [2025-11-17T12:05:43.691Z] Checked if tokens are valid: true, expires at: 1763383777668
+[debug] [2025-11-17T12:05:43.691Z] >>> [apiv2][query] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/banya-na-griga/versions/689f4359f28e1edc updateMask=status%2Cconfig
+[debug] [2025-11-17T12:05:43.691Z] >>> [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/banya-na-griga/versions/689f4359f28e1edc {"status":"FINALIZED","config":{"rewrites":[{"glob":"/","path":"/index.html"}]}}
+[debug] [2025-11-17T12:05:43.914Z] <<< [apiv2][status] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/banya-na-griga/versions/689f4359f28e1edc 200
+[debug] [2025-11-17T12:05:43.914Z] <<< [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/banya-na-griga/versions/689f4359f28e1edc {"name":"projects/415000304963/sites/banya-na-griga/versions/689f4359f28e1edc","status":"FINALIZED","config":{"rewrites":[{"glob":"/","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2025-11-17T12:05:25.445509Z","createUser":{"email":"dz.workhub@gmail.com"},"finalizeTime":"2025-11-17T12:05:43.931047Z","finalizeUser":{"email":"dz.workhub@gmail.com"}}
+[debug] [2025-11-17T12:05:43.914Z] [hosting] finalized version for banya-na-griga:[object Object]
+[info] ✔  hosting[banya-na-griga]: version finalized 
+[info] i  hosting[banya-na-griga]: releasing new version... 
+[debug] [2025-11-17T12:05:43.915Z] Checked if tokens are valid: true, expires at: 1763383777668
+[debug] [2025-11-17T12:05:43.915Z] Checked if tokens are valid: true, expires at: 1763383777668
+[debug] [2025-11-17T12:05:43.915Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/banya-na-griga/channels/live/releases versionName=projects%2F415000304963%2Fsites%2Fbanya-na-griga%2Fversions%2F689f4359f28e1edc
+[debug] [2025-11-17T12:05:43.915Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/banya-na-griga/channels/live/releases {}
+[debug] [2025-11-17T12:05:44.252Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/banya-na-griga/channels/live/releases 200
+[debug] [2025-11-17T12:05:44.252Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/banya-na-griga/channels/live/releases {"name":"projects/415000304963/sites/banya-na-griga/channels/live/releases/1763381143728000","version":{"name":"projects/415000304963/sites/banya-na-griga/versions/689f4359f28e1edc","status":"FINALIZED","config":{"rewrites":[{"glob":"/","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2025-11-17T12:05:25.445509Z","createUser":{"email":"dz.workhub@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocJg2Gg6W2fntsuk6kn7684vUmvF87t6jhY_muPtgvb0NC_k2ZE"},"finalizeTime":"2025-11-17T12:05:43.931047Z","finalizeUser":{"email":"dz.workhub@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocJg2Gg6W2fntsuk6kn7684vUmvF87t6jhY_muPtgvb0NC_k2ZE"}},"type":"DEPLOY","releaseTime":"2025-11-17T12:05:43.728Z","releaseUser":{"email":"dz.workhub@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocJg2Gg6W2fntsuk6kn7684vUmvF87t6jhY_muPtgvb0NC_k2ZE"}}
+[debug] [2025-11-17T12:05:44.252Z] [hosting] release: {"name":"projects/415000304963/sites/banya-na-griga/channels/live/releases/1763381143728000","version":{"name":"projects/415000304963/sites/banya-na-griga/versions/689f4359f28e1edc","status":"FINALIZED","config":{"rewrites":[{"glob":"/","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2025-11-17T12:05:25.445509Z","createUser":{"email":"dz.workhub@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocJg2Gg6W2fntsuk6kn7684vUmvF87t6jhY_muPtgvb0NC_k2ZE"},"finalizeTime":"2025-11-17T12:05:43.931047Z","finalizeUser":{"email":"dz.workhub@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocJg2Gg6W2fntsuk6kn7684vUmvF87t6jhY_muPtgvb0NC_k2ZE"}},"type":"DEPLOY","releaseTime":"2025-11-17T12:05:43.728Z","releaseUser":{"email":"dz.workhub@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocJg2Gg6W2fntsuk6kn7684vUmvF87t6jhY_muPtgvb0NC_k2ZE"}}
+[info] ✔  hosting[banya-na-griga]: release complete 
+[info] 
+[info] ✔  Deploy complete! 
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/banya-na-griga/overview
+[info] Hosting URL: https://banya-na-griga.web.app
+[debug] [2025-11-17T12:05:49.383Z] Error: Timed out.
+    at Timeout._onTimeout (/opt/homebrew/lib/node_modules/firebase-tools/lib/utils.js:275:49)
+    at listOnTimeout (node:internal/timers:608:17)
+    at process.processTimers (node:internal/timers:543:7)
+[error] 
+[error] Error: An unexpected error has occurred.
